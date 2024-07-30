@@ -2,6 +2,7 @@
 import os     # Use to interface with the terminal 
 import dotenv # Use to load environment variables
 
+from source.LLMUcamp import LLMUcamp
 from source.utils import get_env_info_from_user, create_vectorstore # setup
 
 #------------------------------------------------------------------
@@ -25,39 +26,32 @@ def setup(c):
     # Check if .env file exists and create it if not
     if not dotenv.load_dotenv():
         print("[\x1b[31m Erro \x1b[0m] Arquivo de ambiente (.env) não encontrado.") 
-        api_key, rag_url = get_env_info_from_user()
-
+        api_key, rag_url = get_env_info_from_user()        
         if not api_key or not rag_url:
             return
         
         print("Criando um arquivo .env ...")
         with open(".env", "w") as f:
             f.write("GROQ_API_KEY=" + api_key)
-            f.write("\nRAG_URL=" + rag_url)
+            f.write("\nRAG_URL=" + rag_url) 
         print("Arquivo .env criado com sucesso!\n")
     else:
         api_key = os.getenv("GROQ_API_KEY")
         rag_url = os.getenv("RAG_URL")
  
-    # Create vectorstore from .env file info using langchain and chroma
-    chunk_size         = 1000 
-    chunk_overlap      = 200
-
-    print("Iniciando uma Vectorstore apartir do link: " + rag_url) 
-    print("Chunk_size = " + str(chunk_size))
-    print("Chunk_overlap = " + str(chunk_overlap))
-    print("Creating Vectorstore...")
-    
-    create_vectorstore(url=rag_url, chunk_size=1000, chunk_overlap=200, vectorstore_folder=vectorstore_folder)
+    # Create vectorstore from .env file info using langchain and chroma 
+    create_vectorstore(docs_url=rag_url, chunk_size=1000, chunk_overlap=200, vectorstore_folder=vectorstore_folder) 
     print("Feito! Vectorstore criada em " + vectorstore_folder) 
 
 #------------------------------------------------------------------
-# Run Task 
-@task
-def run(c):
-    print("run web :)")
-    pass
-
+# Run Task: 
 @task
 def runCLI(c):
-    user_input = input("Me pergunte algo: ")
+    if not dotenv.load_dotenv():
+        print("[\x1b[31m Erro \x1b[0m] Arquivo de ambiente (.env) não encontrado.") 
+        return
+  
+    chatbot = LLMUcamp(vectorstore_folder=vectorstore_folder, temperature=0, model="llama-3.1-70b-versatile")
+
+    while(user_question := input("Faça sua pergunta: ")):
+        print(chatbot.answer(user_question))

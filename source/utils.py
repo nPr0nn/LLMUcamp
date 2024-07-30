@@ -6,6 +6,8 @@ from langchain_chroma import Chroma
 
 from langchain_huggingface import HuggingFaceEmbeddings
 
+#------------------------------------------------------------------
+
 def get_env_info_from_user():    
     # Get user input to create .env file
     print("\nParece que você ainda não tem um arquivo de ambiente (.env)...")
@@ -27,10 +29,17 @@ def get_env_info_from_user():
 
     return api_key, rag_url
 
-def create_vectorstore(url, chunk_size, chunk_overlap, vectorstore_folder):    
+#------------------------------------------------------------------
+
+def create_vectorstore(docs_url, chunk_size, chunk_overlap, vectorstore_folder):    
+    print("Iniciando uma Vectorstore apartir do link: " + docs_url) 
+    print("Chunk_size = " + str(chunk_size))
+    print("Chunk_overlap = " + str(chunk_overlap))
+    print("Creating Vectorstore...")
+    
     # Load webpage using langchain and bs4
     soup_strainer = bs4.SoupStrainer(class_=("card-body"))
-    web_loader    = WebBaseLoader(web_paths=(url,), bs_kwargs={"parse_only": soup_strainer})
+    web_loader    = WebBaseLoader(web_paths=(docs_url,), bs_kwargs={"parse_only": soup_strainer})
     docs          = web_loader.load()
 
     # Split text into smaller chunks
@@ -44,4 +53,7 @@ def create_vectorstore(url, chunk_size, chunk_overlap, vectorstore_folder):
 def load_vectorstore(vectorstore_folder):
     print("Loading Vectorstore...")
     vectorstore = Chroma(persist_directory=vectorstore_folder, embedding_function=HuggingFaceEmbeddings())
-    return vectorstore
+    return vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 4})
+
+#------------------------------------------------------------------
+
