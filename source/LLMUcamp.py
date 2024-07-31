@@ -1,18 +1,15 @@
 
-from .utils import load_vectorstore
+
+from . import utils
 
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 
-class LLMUcamp():
+class LLMUcamp():  
     def __init__(self, vectorstore_folder, model, temperature):
-        print("Iniciando o LLMUcamp...")
-        print("Modelo      = " + model)
-        print("Temperatura = " + str(temperature))
-
-        self.vectorstore_retriever = load_vectorstore(vectorstore_folder)
+        self.vectorstore_retriever = utils.load_vectorstore(vectorstore_folder)
 
         base_llm = ChatGroq(temperature=temperature, model=model) 
         system_prompt = (

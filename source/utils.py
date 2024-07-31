@@ -6,6 +6,9 @@ from langchain_chroma import Chroma
 
 from langchain_huggingface import HuggingFaceEmbeddings
 
+from langchain_community.retrievers import BM25Retriever
+from langchain.retrievers import EnsembleRetriever
+
 #------------------------------------------------------------------
 
 def get_env_info_from_user():    
@@ -51,9 +54,7 @@ def create_vectorstore(docs_url, chunk_size, chunk_overlap, vectorstore_folder):
     return vectorstore 
 
 def load_vectorstore(vectorstore_folder):
-    print("Loading Vectorstore...")
-    vectorstore = Chroma(persist_directory=vectorstore_folder, embedding_function=HuggingFaceEmbeddings())
+    vectorstore = Chroma(persist_directory=vectorstore_folder, embedding_function=HuggingFaceEmbeddings()) 
     return vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 4})
 
 #------------------------------------------------------------------
-

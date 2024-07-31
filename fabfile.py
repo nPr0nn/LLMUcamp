@@ -5,13 +5,17 @@ import dotenv # Use to load environment variables
 from source.LLMUcamp import LLMUcamp
 from source.utils import get_env_info_from_user, create_vectorstore # setup
 
+from streamlit.web import cli 
+
 #------------------------------------------------------------------
 # Application Tasks - Using Fabfile module to make easy to call
 # functions from the command line/terminal and keep the code clean 
 #------------------------------------------------------------------
 
-# Global Variables
+# Global Variables (only paths and icons)
 vectorstore_folder = "./vectorstore"
+user_icon          = "assets/nerd-face.svg"
+chatbot_icon       = "assets/UNICAMP_logo.svg" 
 
 #------------------------------------------------------------------
 # Setup Task: 
@@ -50,8 +54,16 @@ def runCLI(c):
     if not dotenv.load_dotenv():
         print("[\x1b[31m Erro \x1b[0m] Arquivo de ambiente (.env) não encontrado.") 
         return
-  
+    
     chatbot = LLMUcamp(vectorstore_folder=vectorstore_folder, temperature=0, model="llama-3.1-70b-versatile")
-
     while(user_question := input("Faça sua pergunta: ")):
         print(chatbot.answer(user_question))
+
+@task
+def run(c):
+    if not dotenv.load_dotenv():
+        print("[\x1b[31m Erro \x1b[0m] Arquivo de ambiente (.env) não encontrado.") 
+        return
+    
+    args = vectorstore_folder + " " + user_icon + " " + chatbot_icon 
+    os.system("streamlit run streamlit_app.py " + args)
