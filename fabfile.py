@@ -60,7 +60,7 @@ def runCLI(c):
         print(chatbot.answer(user_question))
 
 @task
-def run(c):
+def runWeb(c):
     if not dotenv.load_dotenv():
         print("[\x1b[31m Erro \x1b[0m] Arquivo de ambiente (.env) não encontrado.") 
         return

@@ -16,7 +16,7 @@ O Projeto LLMUcamp Chatbot é projetado para fornecer um chatbot interativo para
 
 ### Pré-requisitos
 
-Certifique-se de que você tem Python 3.8+ e `pip` instalados. Então baixe o zip do repositório ou clone com o comando:
+Certifique-se de que você tem Python 3.8+ e `pip` instalados. Em seguida basta baixar o .zip desse repositório ou o clonar com o comando:
 
 ```bash
 git clone https://github.com/nPr0nn/LLMUcamp.git
@@ -32,7 +32,7 @@ pip install -r requirements.txt
 
 ### Configuração 
 
-1. Execute a tarefa `setup` para inicializar configurar o ambiente:
+Execute a tarefa `setup` para inicializar configurar o ambiente:
 
 ```bash
 fab setup
@@ -40,7 +40,26 @@ fab setup
 
 Esse comando irá:
 
-- Criar um arquivo `.env` com as variáveis de ambiente `GROQ_API_KEY` e `RAG_URL` caso o arquivo `.env` não exista;
-- Inicializar a VectorStore com os embeddings referentes à página determinada na url `RAG_URL`. Por padrão essa página é <https://www.pg.unicamp.br/norma/31879/0> que contém a  publicação da Resolução GR-029/2024, de 10/07/2024 que "Dispõe sobre o Vestibular Unicamp 2025 para vagas no ensino de Graduação"
+- Criar um arquivo `.env` com as variáveis de ambiente `GROQ_API_KEY` e `RAG_URL` caso o arquivo `.env` não exista. A chave de acesso para o API do Groq (`GROQ_API_KEY`) será requisitada ao usuário na primeira execução desse comando e ela será guardada apenas **localmente** no arquivo `.env`.
+- Inicializar a VectorStore com os embeddings referentes à página determinada na url `RAG_URL`. Por padrão essa página é <https://www.pg.unicamp.br/norma/31879/0> que contém a  publicação da Resolução GR-029/2024, de 10/07/2024 que "Dispõe sobre o Vestibular Unicamp 2025 para vagas no ensino de Graduação".
 
+## Uso
+
+### Executar o chatbot em modo CLI 
+
+Para iniciar a interface de linha de comando do chatbot, use a tarefa runCLI:
+
+```bash
+fab runCLI
+```
+
+### Executar o chatbot na web com Streamlit
+
+Para iniciar a interface web do chatbot, use a tarefa runWeb:
+
+```bash
+fab runWeb
+```
+
+## Testes
 
