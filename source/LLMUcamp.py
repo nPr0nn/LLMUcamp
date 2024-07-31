@@ -17,6 +17,7 @@ class LLMUcamp():
             "Como fonte de informação, você usará a Resolução GR-029/2024, de 10/07/2024."
             "Você deverá considerar o histórico da conversa, o contexto e a pergunta dada para fornecer uma resposta."
             "Caso não saiba uma resposta não tente inventar alguma, responda que não tem uma resposta"
+            "Não responda dúvidas não relacionadas a pergunta feita."
             "Assuma que todas as dúvidas são acerca do Vestibular da Unicamp 2025. E sempre responda em portugues."
             "\n\n"
             "{context}"

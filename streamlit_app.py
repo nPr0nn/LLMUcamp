@@ -60,6 +60,7 @@ if __name__ == "__main__":
     vectorstore_folder = sys.argv[1]
     user_icon          = sys.argv[2]
     chatbot_icon       = sys.argv[3]
+    model              = sys.argv[4]
     
-    chatbot = LLMUcamp(vectorstore_folder=vectorstore_folder, temperature=0, model="llama-3.1-70b-versatile") 
+    chatbot = LLMUcamp(vectorstore_folder=vectorstore_folder, temperature=0, model=model) 
     launch_app(chatbot, user_icon, chatbot_icon) 

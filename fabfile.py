@@ -15,6 +15,10 @@ from source.utils import get_txt_file_paths
 #------------------------------------------------------------------
 
 # Global Variables (only paths and icons)
+default_model              = "llama3-70b-8192"
+# default_model              = "llama-3.1-70b-versatile"
+# default_model              = "mixtral-8x7b-32768"
+
 vectorstore_folder = "./vectorstore"
 user_icon          = "assets/chatbot/nerd-face.svg"
 chatbot_icon       = "assets/chatbot/UNICAMP_logo.svg" 
@@ -61,7 +65,7 @@ def runCLI(c):
         print("[\x1b[31m Erro \x1b[0m] Arquivo de ambiente (.env) não encontrado.") 
         return
     
-    chatbot = LLMUcamp(vectorstore_folder=vectorstore_folder, temperature=0, model="llama-3.1-70b-versatile")
+    chatbot = LLMUcamp(vectorstore_folder=vectorstore_folder, temperature=0, model=default_model)
     while(user_question := input("Faça sua pergunta: ")):
         print(chatbot.answer(user_question))
 
@@ -71,7 +75,7 @@ def runWeb(c):
         print("[\x1b[31m Erro \x1b[0m] Arquivo de ambiente (.env) não encontrado.") 
         return
     
-    args = vectorstore_folder + " " + user_icon + " " + chatbot_icon 
+    args = vectorstore_folder + " " + user_icon + " " + chatbot_icon + " " + default_model 
     os.system("streamlit run streamlit_app.py " + args)
 
 #------------------------------------------------------------------
@@ -83,7 +87,7 @@ def test(c):
         return
 
     # Get chatbot
-    chatbot = LLMUcamp(vectorstore_folder=vectorstore_folder, temperature=0, model="llama-3.1-70b-versatile")
+    chatbot = LLMUcamp(vectorstore_folder=vectorstore_folder, temperature=0, model=default_model)
     
     # Get questions data
     questions_folder_path = os.path.join(tests_folder, "questions") 
