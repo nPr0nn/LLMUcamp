@@ -7,6 +7,8 @@ from source.utils import get_env_info_from_user, create_vectorstore # setup
 
 from streamlit.web import cli 
 
+from source.utils import get_txt_file_paths
+
 #------------------------------------------------------------------
 # Application Tasks - Using Fabfile module to make easy to call
 # functions from the command line/terminal and keep the code clean 
@@ -16,6 +18,8 @@ from streamlit.web import cli
 vectorstore_folder = "./vectorstore"
 user_icon          = "assets/chatbot/nerd-face.svg"
 chatbot_icon       = "assets/chatbot/UNICAMP_logo.svg" 
+
+tests_folder       = "./tests_data"
 
 #------------------------------------------------------------------
 # Setup Task: 
@@ -48,7 +52,9 @@ def setup(c):
     print("Feito! Vectorstore criada em " + vectorstore_folder) 
 
 #------------------------------------------------------------------
-# Run Task: 
+# Run Task:
+# 1. Run CLI
+# 2. Run Web
 @task
 def runCLI(c):
     if not dotenv.load_dotenv():
@@ -67,3 +73,39 @@ def runWeb(c):
     
     args = vectorstore_folder + " " + user_icon + " " + chatbot_icon 
     os.system("streamlit run streamlit_app.py " + args)
+
+#------------------------------------------------------------------
+# Test Task:
+@task
+def test(c):
+    if not dotenv.load_dotenv():
+        print("[\x1b[31m Erro \x1b[0m] Arquivo de ambiente (.env) não encontrado.") 
+        return
+
+    # Get chatbot
+    chatbot = LLMUcamp(vectorstore_folder=vectorstore_folder, temperature=0, model="llama-3.1-70b-versatile")
+    
+    # Get questions data
+    questions_folder_path = os.path.join(tests_folder, "questions") 
+    answers_folder_path = os.path.join(tests_folder, "answers")
+    questions_files = get_txt_file_paths(questions_folder_path) 
+
+    # Test
+    for question_file in questions_files:
+        answers_file = question_file.replace(questions_folder_path, answers_folder_path)  
+        answers      = [] 
+      
+        with open(question_file, "r") as file:
+            questions = file.readlines()
+
+        with open(answers_file, "w") as file:
+            file.writelines("Origin file: " + question_file + "\n\n")
+            
+            for question in questions:
+                pure_question = question.split(".")[1].strip("\n")
+                answer        = chatbot.answer(pure_question)
+                bar = "----------------------------------------------------------------------------"
+                answers.append(f"{bar}\n\n{question}\n[Resposta]\n{answer}\n\n")
+                print(answers[-1]) 
+                file.writelines(answers[-1]) 
+    return

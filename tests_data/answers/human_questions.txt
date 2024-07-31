@@ -1,0 +1,106 @@
+Origin file: ./tests_data/questions/human_questions.txt
+
+----------------------------------------------------------------------------
+
+1. Qual é a data de inscrição para o vestibular ?
+
+[Resposta]
+De acordo com a Resolução GR-029/2024, a data de inscrição para o Vestibular Unicamp 2025 não é especificada. No entanto, o artigo 5º da Resolução menciona que a Comissão Permanente para os Vestibulares da Unicamp (Comvest) é responsável por divulgar, com a necessária antecedência, o período de inscrição, as datas e os locais de realização das provas e todas as informações relacionadas ao VU 2025.
+
+Além disso, o §2º do artigo 5º menciona que o Manual do Ingresso, que contém todas as informações necessárias relativas ao VU 2025, poderá ser acessado eletronicamente no site da Comvest (www.comvest.unicamp.br) a partir de 01 de agosto de 2024. Portanto, é provável que as informações sobre a data de inscrição sejam divulgadas a partir dessa data.
+
+----------------------------------------------------------------------------
+
+2. Qual é a data das provas ?
+
+[Resposta]
+As provas do Vestibular da Unicamp 2025 serão realizadas em duas fases:
+
+1ª fase: 20 de outubro de 2024
+2ª fase: 1 e 2 de dezembro de 2024
+
+Além disso, as provas de Habilidades Específicas para os cursos de Música serão realizadas de forma virtual entre os dias 20 a 30 de setembro de 2024.
+
+As provas de Habilidades Específicas para os outros cursos (exceto Música) serão realizadas de 11 a 13 de dezembro de 2024.
+
+----------------------------------------------------------------------------
+
+3. Quais Romances fazem parte dos textos exigidos ?
+
+[Resposta]
+De acordo com a Resolução GR-029/2024, de 10/07/2024, não há romances específicos mencionados como textos exigidos para o Vestibular da Unicamp 2025. No entanto, é mencionado que a prosa abrange uma gama variada de gêneros, incluindo romances, contos, crônicas, sermões ou diários.
+
+No entanto, é importante notar que a lista de obras exigidas inclui "Prosas seguidas de odes mínimas" de José Paulo Paes, que é uma obra de prosa, mas não um romance específico.
+
+Se você tiver alguma outra dúvida, sinta-se à vontade para perguntar!
+
+----------------------------------------------------------------------------
+
+5. Quais habilidades são exigidas para a prova de língua portuguesa ?
+
+[Resposta]
+A prova de Língua Portuguesa e Literaturas de Língua Portuguesa da primeira e segunda fases e a de Redação da segunda fase são elaboradas para avaliar algumas características que a Universidade espera encontrar em seus(uas) alunos(as). Entre essas características estão a capacidade de interpretar textos de diferentes gêneros, de formular hipóteses e estabelecer relações, de expressar-se com clareza, organizar ideias, analisar fatos e dados e sustentar argumentações.
+
+----------------------------------------------------------------------------
+
+6. Quais a provas comuns para todos os candidatos na segunda fase ?
+
+[Resposta]
+As provas comuns para todos os candidatos na segunda fase são:
+
+1. Prova de Redação;
+2. Prova de Língua Portuguesa e Literaturas de Língua Portuguesa;
+3. Prova de Matemática;
+4. Prova Interdisciplinar (Inglês, Ciências Humanas e Ciências da Natureza).
+
+----------------------------------------------------------------------------
+
+7. Quantas vagas regulares são reservadas para Administração (Norturno) ?
+
+[Resposta]
+De acordo com a Resolução GR-029/2024, de 10/07/2024,  8 vagas são reservadas para Administração (Noturno).
+
+----------------------------------------------------------------------------
+
+8. O que ocorrerá caso um candidato cometa alguma fraude ?
+
+[Resposta]
+De acordo com o Art. 52 da Resolução GR-029/2024, caso um candidato cometa alguma fraude, independentemente do momento em que for constatada, ele será eliminado do Vestibular da Unicamp 2025 e terá sua matrícula cancelada, caso já efetuada.
+
+----------------------------------------------------------------------------
+
+9. Qual o objetivo da prova de redação ?
+
+[Resposta]
+A prova de redação visa avaliar a capacidade do candidato de produzir um texto coerente e bem estruturado, que demonstre sua habilidade de expressar pensamentos e ideias de forma clara e eficaz. O objetivo é avaliar a capacidade do candidato de:
+
+* Produzir um texto que atenda ao tema proposto;
+* Organizar as ideias de forma lógica e coerente;
+* Utilizar a linguagem de forma adequada e correta;
+* Demonstrar habilidade em expressar pensamentos e ideias de forma clara e eficaz.
+
+A prova de redação é uma oportunidade para o candidato demonstrar sua capacidade de comunicação escrita e sua habilidade em expressar pensamentos e ideias de forma clara e eficaz.
+
+----------------------------------------------------------------------------
+
+10. Quais os contéudos podem cair na prova de Matemática ?
+
+[Resposta]
+De acordo com a Resolução GR-029/2024, as questões de Matemática do Vestibular Unicamp procuram identificar nos(as) candidatos(as) um conhecimento crítico e integrado da Matemática do ensino fundamental e do ensino médio.
+
+As habilidades exigidas incluem:
+
+* Leitura atenta dos enunciados das questões
+* Formulação correta dos problemas matemáticos associados
+* Elaboração cuidadosa dos cálculos
+* Uso correto das unidades
+* Escolha da resposta correta ou apresentação de respostas claras
+
+Os(as) candidatos(as) devem estar familiarizados com a nomenclatura e os símbolos matemáticos usuais. Além disso, devem ser capazes de:
+
+* Resolver problemas matemáticos relacionados ao cotidiano
+* Interpretar e elaborar tabelas e gráficos
+* Responder questões que tratam de forma mais abstrata o conhecimento matemático
+
+Não há uma lista específica de conteúdos que podem cair na prova de Matemática, mas é esperado que os(as) candidatos(as) tenham um conhecimento sólido da Matemática do ensino fundamental e do ensino médio.
+

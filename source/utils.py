@@ -1,4 +1,4 @@
-
+import os
 import bs4
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -58,3 +58,18 @@ def load_vectorstore(vectorstore_folder):
     return vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 4})
 
 #------------------------------------------------------------------
+
+def get_txt_file_paths(folder_path):
+    # List to store paths of .txt files
+    txt_file_paths = []
+
+    # Walk through the folder
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            # Check if the file ends with .txt
+            if file.endswith('.txt'):
+                # Join the root directory with the file name
+                file_path = os.path.join(root, file)
+                txt_file_paths.append(file_path)
+
+    return txt_file_paths

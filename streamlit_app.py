@@ -6,8 +6,8 @@ import streamlit as st
 from streamlit_chat import message
 from source.LLMUcamp import LLMUcamp
 
-def typed_answer(response):
-    for word in response.split():
+def typed_answer(text):
+    for word in text.split():
         yield word + " "
         time.sleep(0.05)
 
@@ -45,15 +45,15 @@ def launch_app(chatbot: LLMUcamp, user_icon, chatbot_icon):
         with st.chat_message(role, avatar=avatar_dict[role]):
             st.markdown(f"{content}")
     
-    # If last message is not from assistant, we need to generate a new response
+    # If last message is not from assistant, we need to generate a new answer
     if st.session_state.messages[-1]["role"] != "assistant": 
         # Call the chatbot function
         with st.chat_message("assistant", avatar=avatar_dict["assistant"]):
             with st.spinner("Pensando..."):
-                response = chatbot.answer(prompt)  # Call the chatbot function with the user's prompt
-                st.write_stream(typed_answer(response))
+                answer = chatbot.answer(prompt)  # Call the chatbot function with the user's prompt
+                st.write_stream(typed_answer(answer))
 
-        message = {"role": "assistant", "content": response}
+        message = {"role": "assistant", "content": answer}
         st.session_state.messages.append(message)
 
 if __name__ == "__main__":
