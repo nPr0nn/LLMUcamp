@@ -14,8 +14,8 @@ from streamlit.web import cli
 
 # Global Variables (only paths and icons)
 vectorstore_folder = "./vectorstore"
-user_icon          = "assets/nerd-face.svg"
-chatbot_icon       = "assets/UNICAMP_logo.svg" 
+user_icon          = "assets/chatbot/nerd-face.svg"
+chatbot_icon       = "assets/chatbot/UNICAMP_logo.svg" 
 
 #------------------------------------------------------------------
 # Setup Task: 
