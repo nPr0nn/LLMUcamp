@@ -5,9 +5,6 @@
 
 O Projeto LLMUcamp Chatbot é projetado para fornecer um chatbot interativo para responder perguntas sobre o Vestibular da UNICAMP 2025. O projeto utiliza várias bibliotecas e ferramentas, incluindo Streamlit para a interface web, LangChain para processamento de linguagem natural e Chroma para gerenciamento de vectorstores.
 
-## Demo 
-
-Fale com o LLMUcamp Chatbot online em: [colocar link]
 
 ## Estrutura do Projeto
 
