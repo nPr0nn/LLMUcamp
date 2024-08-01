@@ -1,2 +1,0 @@
-Origin file: ./tests_data/questions/gpt_questions.txt
-
